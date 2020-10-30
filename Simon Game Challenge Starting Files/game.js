@@ -25,6 +25,7 @@ $(".btn").click(function(){
     var userClikcedButton = $(this).attr("id");
     clickAnimation(userClikcedButton);
     userClickedPattern.push(userClikcedButton);
+    playSound(userClikcedButton);
     count++;
     if(count == level)checkAnswer();
 })
@@ -55,7 +56,13 @@ function clickAnimation(color){
 
 function gameOver(){
     $("h1").text("Game Over. Press any key to start again");
+    playSound("wrong");
     gamePattern = [];
     userClickedPattern = [];
     count = 0, level = 1;
+}
+
+function playSound(color){
+    var audio = new Audio("sounds/"+color+".mp3");
+    audio.play();
 }
