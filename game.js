@@ -14,7 +14,7 @@ function nextSequence(){
 
 
 
-$(document).click(function(){
+$(document).keypress(function(){
 $("h1").text("Level: "+ level);
 nextSequence();
 })
